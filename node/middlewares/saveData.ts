@@ -12,11 +12,9 @@ export async function saveData(ctx: Context, next: () => Promise<any>) {
     await masterdataClient.updateColor(color, body)
     await next()
   } catch (error) {
+    // si hay error catch
     console.info('error', error)
     ctx.status = 500
     ctx.body = error
   }
-  // si hay error catch
-
-
 }
