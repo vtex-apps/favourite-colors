@@ -21,9 +21,15 @@ export async function validate(ctx: Context, next: () => Promise<any>) {
     }
     // Validar que el color que pasen en el post sea uno de los permitidos
 
+    ctx.state.body.color = color
+    
     if (colors.find((c: any) => c === color)){
       await next()
     } else {
+      ctx.body = {
+        message: 'Color no permitido'
+      }
+      ctx.status = 400
       return
     }
 
@@ -32,5 +38,6 @@ export async function validate(ctx: Context, next: () => Promise<any>) {
     ctx.status = 500
      // Si hay un error hacer ctx.body error
     ctx.body = error
+    return
   }
 }

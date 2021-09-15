@@ -14,7 +14,7 @@ import { validate } from './middlewares/validate'
 
 const TIMEOUT_MS = 800
 
-const memoryCache = new LRUCache<string, any>({ max: 0 })
+const memoryCache = new LRUCache<string, any>({ max: 20 })
 
 metrics.trackCache('status', memoryCache)
 
