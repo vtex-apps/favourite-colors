@@ -26,10 +26,11 @@ export async function readData(ctx: Context, next: () => Promise<any>) {
       const {votes} = responseGetColor.data
       ctx.state.body.votes = votes
       await next()
-      // y hacer next(), si hay error => catch
+      // y hacer next(),
 
     }
   } catch (error) {
+    // si hay error => catch
     console.info('error', error)
     ctx.status = 500
     ctx.body = error

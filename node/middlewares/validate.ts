@@ -30,10 +30,7 @@ export async function validate(ctx: Context, next: () => Promise<any>) {
   } catch (error) {
     console.info('error', error)
     ctx.status = 500
+     // Si hay un error hacer ctx.body error
     ctx.body = error
   }
-
-
-  // Si hay un error hacer ctx.body error
-
 }
