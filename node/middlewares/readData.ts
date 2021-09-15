@@ -24,10 +24,10 @@ export async function readData(ctx: Context, next: () => Promise<any>) {
       const responseGetColor = await masterdataClient.getColor(color)
 
       const {votes} = responseGetColor.data
+      console.info("votes",votes)
       ctx.state.body.votes = votes
       await next()
       // y hacer next(),
-
     }
   } catch (error) {
     // si hay error => catch
@@ -35,7 +35,4 @@ export async function readData(ctx: Context, next: () => Promise<any>) {
     ctx.status = 500
     ctx.body = error
   }
-
-
-  await next()
 }

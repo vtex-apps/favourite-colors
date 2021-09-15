@@ -9,6 +9,7 @@ export async function saveData(ctx: Context, next: () => Promise<any>) {
     const {color, votes} = ctx.state.body
     // y guardarlos en la base de datos
     const body = { votes: (votes + 1)}
+    console.info("body",body)
     await masterdataClient.updateColor(color, body)
     await next()
   } catch (error) {
