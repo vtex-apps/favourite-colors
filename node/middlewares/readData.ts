@@ -19,7 +19,8 @@ export async function readData(ctx: Context, next: () => Promise<any>) {
     ctx.body = {colors: hexColors, message: 'Success!!!!!'}
     ctx.status = 200
   } else {
-
+    // Levantar el color del state y hacer un getColor() y pasar la cantidad de votos a otro state
+    // y hacer next(), si hay error => catch
   }
 
   await next()
