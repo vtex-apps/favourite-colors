@@ -1,4 +1,4 @@
-import { 
+import {
   ClientsConfig,
   ServiceContext,
   RecorderState,
@@ -17,7 +17,7 @@ const TIMEOUT_MS = 800
 const memoryCache = new LRUCache<string, any>({ max: 0 })
 
 metrics.trackCache('status', memoryCache)
- 
+
 const clients: ClientsConfig<Clients> = {
   implementation: Clients,
   options: {
@@ -27,18 +27,25 @@ const clients: ClientsConfig<Clients> = {
     },
      status: {
       memoryCache,
-    }, 
+    },
   },
 }
 
 declare global {
   type Context = ServiceContext<Clients, State>
-  interface State extends RecorderState {
-    //code: number
+
+  interface BodyColor {
+    color: string
+    votes: number
   }
+
+  interface State extends RecorderState {
+    body: BodyColor
+  }
+
 }
 
-export default new Service({
+export default new Service<Clients, RecorderState, Context>({
   clients,
   routes: {
     colors: method({

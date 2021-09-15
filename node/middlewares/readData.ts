@@ -21,6 +21,7 @@ export async function readData(ctx: Context, next: () => Promise<any>) {
   } else {
     // Levantar el color del state y hacer un getColor() y pasar la cantidad de votos a otro state
     // y hacer next(), si hay error => catch
+
   }
 
   await next()
