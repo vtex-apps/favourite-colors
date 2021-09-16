@@ -1,0 +1,9 @@
+type GetAllColorsResponse{
+  colors: [Colors!]
+  message: String!
+}
+
+type Colors{
+  color: String!
+  votes: Int!
+}
