@@ -27,7 +27,7 @@ export async function validate(ctx: Context, next: () => Promise<any>) {
       await next()
     } else {
       ctx.body = {
-        message: 'Color no permitido'
+        message: 'Color not allowed'
       }
       ctx.status = 400
       return

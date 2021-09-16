@@ -11,6 +11,7 @@ import { Clients } from './clients'
 import { readData } from './middlewares/readData'
 import { saveData } from './middlewares/saveData'
 import { validate } from './middlewares/validate'
+import { resolvers } from './resolvers'
 
 const TIMEOUT_MS = 800
 
@@ -52,5 +53,8 @@ export default new Service<Clients, RecorderState, Context>({
       GET: [readData],
       POST: [validate, readData ,saveData],
     }),
+  },
+  graphql: {
+    resolvers,
   },
 })
