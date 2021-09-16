@@ -130,3 +130,4 @@ For convenience, the link for the current version: https://splunk7.vtex.com/en-U
 **Upcoming documentation:**
 
  - [Back](https://github.com/vtex-apps/favourite-colors/pull/1)
+ - [Resolvers listos](https://github.com/vtex-apps/favourite-colors/pull/2)
