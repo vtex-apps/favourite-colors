@@ -17,7 +17,7 @@ declare global {
     image: string
     title: string
     text: string
-    colors: any
+    colorsFromAdmin: any
   }
 
   export interface HeaderProps {
@@ -38,9 +38,6 @@ declare global {
 
   export interface Color{
     code: string
-  }
-  export interface BarChartProps {
-    data: ColorsMetaData[]
   }
 
   export interface ColorsMetaData {

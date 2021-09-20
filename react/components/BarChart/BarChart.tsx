@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Chart } from "react-google-charts";
 import { Spinner } from 'vtex.styleguide';
 import styles from './BarChart.module.css';
 
-const BarChart: StorefrontFunctionComponent<BarChartProps> = ({ data }) => {
+import getAllColors from './../../graphql/getAllColors.gql'
+import { useQuery } from 'react-apollo'
+
+const BarChart: StorefrontFunctionComponent = () => {
+  const [colors, setColors] = useState<ColorsMetaData[]>()
+  const [state, setState] = useState({
+    isLoading: true,
+    error: ""
+  })
+  const { loading, error, data } = useQuery(getAllColors, {
+    ssr: false,
+  });
   const sampleData: any = [
     [
       'Element',
@@ -18,13 +29,20 @@ const BarChart: StorefrontFunctionComponent<BarChartProps> = ({ data }) => {
     ],
   ]
 
-  data.forEach(item => {
+  colors && colors.forEach(item => {
     sampleData.push([item.color, item.votes, `color: ${item.color}`, null]);
   });
+
+  useEffect(() => {
+    if (loading) setState(prevState => ({ ...prevState, isLoading: true }))
+    if (error) setState(prevState => ({ ...prevState, error: error }))
+    if (data) setColors(data.getAllColors?.colors)
+  }, [loading, error, data])
 
   return (
     <section className={`${styles.BarChart}`}>
       <Chart
+        className={styles.BarChartDiv}
         chartType="ColumnChart"
         data={sampleData}
         loader={
@@ -34,11 +52,13 @@ const BarChart: StorefrontFunctionComponent<BarChartProps> = ({ data }) => {
         }
         options={{
           height: 600,
+          width: 1000,
           bar: { groupWidth: '95%' },
           legend: { position: 'none' },
         }}
         rootProps={{ 'data-testid': '6' }}
       />
+      {error && <p>{state.error}</p>}
     </section>
   )
 }

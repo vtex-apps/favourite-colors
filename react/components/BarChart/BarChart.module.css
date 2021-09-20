@@ -2,4 +2,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 80vh;
+}
+
+.BarChartDiv{
+  width: 100%;
 }

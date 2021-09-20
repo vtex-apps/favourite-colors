@@ -1,60 +1,52 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import BarChart from './components/BarChart/BarChart';
 import ColorPicker from './components/ColorPicker/ColorPicker';
 import Header from './components/Header/Header';
-
-const data = [
-  {
-    color: "#6182F5",
-    votes: 0
-  },
-  {
-    color: "#32A1B5",
-    votes: 0
-  },
-  {
-    color: "#DF5F5F",
-    votes: 0
-  },
-  {
-    color: "#5FD7DF",
-    votes: 0
-  },
-  {
-    color: "#C15FC3",
-    votes: 0
-  },
-  {
-    color: "#8FE793",
-    votes: 5
-  },
-  {
-    color: "#F2F561",
-    votes: 7
-  }
-]
+import updateColorGQL from './graphql/updateColor.gql';
+import { useMutation } from 'react-apollo'
 
 const FavoriteColor: StorefrontFunctionComponent<FavoriteColorProps> = ({
   image,
   title = 'Color Favorito',
-  colors
+  colorsFromAdmin
 }) => {
+  const [state, setState] = useState({
+    isLoading: true,
+    error: ""
+  })
   const [submited, setSubmited] = useState(false);
-  console.log("colors", colors)
+
+  const [updateColor,
+    {
+      loading,
+      error,
+      data
+    }] = useMutation(updateColorGQL)
 
   const sendCode = (selected: string) => {
-    console.log("click", selected)
-    setSubmited(true)
+    updateColor({ variables: { colorId: selected } })
   }
+
+  useEffect(() => {
+    if (loading) setState(prevState => ({ ...prevState, isLoading: true }))
+    if (error) setState(prevState => ({ ...prevState, error: error }))
+    if (data) {
+      setSubmited(true)
+    }
+  }, [error, data, loading])
+
 
   return (
     <>
       <Header image={image} title={title} />
       {
         !submited ?
-          <ColorPicker onClick={sendCode} colors={colors} />
+          <>
+            <ColorPicker onClick={sendCode} colors={colorsFromAdmin} />
+            {state.error && <p>{state.error}</p>}
+          </>
           :
-          <BarChart data={data} />
+          <BarChart />
       }
     </>
   )
@@ -80,7 +72,7 @@ FavoriteColor.schema = {
       type: 'string',
       default: 'Color Favorito',
     },
-    colors: {
+    colorsFromAdmin: {
       title: 'Colors',
       type: 'array',
       items: {
