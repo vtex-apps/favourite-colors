@@ -1,0 +1,11 @@
+.Header{
+  min-height: 70vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.Title{
+  color: white;
+  font-size: 4rem;
+}
