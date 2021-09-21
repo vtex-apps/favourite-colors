@@ -32,7 +32,7 @@ const FavouriteColor: StorefrontFunctionComponent<FavouriteColorProps> = ({
           )}
         </div>
         <Button
-          onClick={() => console.log(selected)}
+          onClick={() => console.log("selected", selected)}
         >
           Enviar
         </Button>
