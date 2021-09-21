@@ -14,10 +14,28 @@ declare global {
   interface FavouriteColorProps {
     image: string
     title: string
+    colorsArray: any
   }
 
   interface HeaderProps {
     image: string
     title: string
+  }
+
+  interface ColorProps {
+    code: string
+    selected: string
+    onClick: (code: string) => void
+  }
+
+  interface ColorPickerProps {
+    colors: ColorProps[],
+    onClick: (selected: string) => void
+  }
+
+  interface ColorButtonProps {
+    code: string
+    selected: string
+    onClick: (code: string) => void
   }
 }
