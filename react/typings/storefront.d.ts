@@ -38,4 +38,9 @@ declare global {
     selected: string
     onClick: (code: string) => void
   }
+
+  interface ColorsMetaData {
+    color: string,
+    votes: number
+  }
 }

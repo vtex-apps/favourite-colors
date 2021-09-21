@@ -1,0 +1,9 @@
+query getAllColorsQuery{
+  getAllColors{
+    colors{
+      color
+      votes
+    }
+    message
+  }
+}
