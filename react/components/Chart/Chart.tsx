@@ -36,11 +36,11 @@ const Chart: StorefrontFunctionComponent<any> = () => {
       <ul className={`ma8 pa0 ${handles['chart--container']}`}>
         {colors && colors.map((color: ColorsMetaData, index: number) =>
           <li
-            className={`pa7 br4 mv4 list ${handles['chart--item']}`}
+            className={`grow pa5 mv5 br-pill list flex flex-column justify-center items-center ${handles['chart--item']}`}
             key={index}
             style={{ backgroundColor: color.color }}
           >
-            {color.color}: <span>{color.votes} votos</span>
+            {color.color} <span className={'b t-heading-3'}>{color.votes} votos</span>
           </li>
         )}
       </ul>
