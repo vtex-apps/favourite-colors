@@ -1,46 +1,45 @@
 import { FunctionComponent } from 'react'
 
 declare global {
-  interface StorefrontFunctionComponent<P = GenericObject>
-    extends FunctionComponent<P> {
-    getSchema?(props: P): GenericObject
-    schema?: GenericObject
+  interface StorefrontFunctionComponent<P = {}> extends FunctionComponent<P> {
+    getSchema?(props: P): object
+    schema?: object
   }
 
-  interface StorefrontComponent<P = GenericObject, S = GenericObject>
-    extends Component<P, S> {
-    getSchema?(props: P): GenericObject
-    schema: GenericObject
+  interface StorefrontComponent<P = {}, S = {}> extends Component<P, S> {
+    getSchema?(props: P): object
+    schema: object
   }
-  export interface FavoriteColorProps {
-    isActive: boolean
+
+  interface FavouriteColorProps {
     image: string
     title: string
-    text: string
-    colorsFromAdmin: any
+    colorsArray: any
   }
 
-  export interface HeaderProps {
+  interface HeaderProps {
     image: string
     title: string
   }
-  export interface ColorPickerProps {
-    // text: string
-    colors: ColorProps[],
-    onClick: (selected: string) => void
-  }
 
-  export interface ColorProps {
+  interface ColorProps {
     code: string
     selected: string
     onClick: (code: string) => void
   }
 
-  export interface Color{
-    code: string
+  interface ColorPickerProps {
+    colors: ColorProps[],
+    onClick: (selected: string) => void
   }
 
-  export interface ColorsMetaData {
+  interface ColorButtonProps {
+    code: string
+    selected: string
+    onClick: (code: string) => void
+  }
+
+  interface ColorsMetaData {
     color: string,
     votes: number
   }

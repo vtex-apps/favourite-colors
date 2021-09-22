@@ -1,5 +1,7 @@
 import React from 'react'
+
 import { useCssHandles } from 'vtex.css-handles';
+
 import styles from './ColorButton.module.css';
 
 const CSS_HANDLES = [
@@ -7,17 +9,18 @@ const CSS_HANDLES = [
   'colorPicker--colorActive'
 ]
 
-const Color: StorefrontFunctionComponent<ColorProps> = ({ selected, code, onClick }) => {
+const ColorButton: StorefrontFunctionComponent<ColorButtonProps> = ({ selected, code, onClick }) => {
   const handles = useCssHandles(CSS_HANDLES);
 
   return (
-    <div
+    <button
+      name={code}
       style={{ backgroundColor: code }}
       className={`${selected === code && `${styles.active} ${handles['colorPicker--colorActive']}`} ${handles['colorPicker--color']} ${styles.Color}`}
       onClick={() => onClick(code)}
     >
-    </div>
+    </button>
   )
 }
 
-export default Color;
+export default ColorButton;

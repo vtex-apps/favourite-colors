@@ -5,6 +5,7 @@
   margin-right: 2rem;
   cursor: pointer;
   transition: 300ms all;
+  border: none;
 }
 
 .active{

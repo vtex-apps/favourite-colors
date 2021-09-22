@@ -21,9 +21,5 @@
   "files": [
     "dist",
     "src"
-  ],
-  "dependencies": {
-    "@devexpress/dx-react-chart": "^2.7.6",
-    "react-google-charts": "^3.0.15"
-  }
+  ]
 }

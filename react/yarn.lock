@@ -1168,24 +1168,6 @@
   resolved "https://registry.npmjs.org/@csstools/normalize.css/-/normalize.css-10.1.0.tgz"
   integrity sha512-ij4wRiunFfaJxjB0BdrYHIH8FxBJpOwNPhhAcunlmPdXudL1WQV1qoP9un6JsEBAgQH+7UXyyjh0g7jTxXK6tg==
 
-"@devexpress/dx-chart-core@2.7.6":
-  version "2.7.6"
-  resolved "https://registry.npmjs.org/@devexpress/dx-chart-core/-/dx-chart-core-2.7.6.tgz"
-  integrity sha512-hCxLJfueJk9bgKNAwecphJbAUlAO0IF8NRQQufSbacKKDa/bpE30oLpYpE58oL6hhiVdkCUPKwmpAkwcSfZaLg==
-  dependencies:
-    d3-array "^2.4.0"
-    d3-scale "^3.2.0"
-    d3-shape "^1.3.7"
-
-"@devexpress/dx-react-chart@^2.7.6":
-  version "2.7.6"
-  resolved "https://registry.yarnpkg.com/@devexpress/dx-react-chart/-/dx-react-chart-2.7.6.tgz#c267a7ed173c416e4785850edfc05b29290737b3"
-  integrity sha512-4fS95P4yd/0KQ1SOXjgHAkTUAtszOLC43ktNw4s7T1UytYpqyzYm/mZU4zK5nHrEz8C8l5uN7Jg5oXpqCd7WUw==
-  dependencies:
-    "@devexpress/dx-chart-core" "2.7.6"
-    d3-scale "^3.2.0"
-    d3-shape "^1.3.7"
-
 "@hapi/address@2.x.x":
   version "2.1.4"
   resolved "https://registry.npmjs.org/@hapi/address/-/address-2.1.4.tgz"
@@ -3531,67 +3513,6 @@ cyclist@^1.0.1:
   resolved "https://registry.npmjs.org/cyclist/-/cyclist-1.0.1.tgz"
   integrity sha1-WW6WmP0MgOEgOMK4LW6xs1tiJNk=
 
-d3-array@2, d3-array@^2.3.0, d3-array@^2.4.0:
-  version "2.12.1"
-  resolved "https://registry.npmjs.org/d3-array/-/d3-array-2.12.1.tgz"
-  integrity sha512-B0ErZK/66mHtEsR1TkPEEkwdy+WDesimkM5gpZr5Dsg54BiTA5RXtYW5qTLIAcekaS9xfZrzBLF/OAkB3Qn1YQ==
-  dependencies:
-    internmap "^1.0.0"
-
-"d3-color@1 - 2":
-  version "2.0.0"
-  resolved "https://registry.npmjs.org/d3-color/-/d3-color-2.0.0.tgz"
-  integrity sha512-SPXi0TSKPD4g9tw0NMZFnR95XVgUZiBH+uUTqQuDu1OsE2zomHU7ho0FISciaPvosimixwHFl3WHLGabv6dDgQ==
-
-"d3-format@1 - 2":
-  version "2.0.0"
-  resolved "https://registry.npmjs.org/d3-format/-/d3-format-2.0.0.tgz"
-  integrity sha512-Ab3S6XuE/Q+flY96HXT0jOXcM4EAClYFnRGY5zsjRGNy6qCYrQsMffs7cV5Q9xejb35zxW5hf/guKw34kvIKsA==
-
-"d3-interpolate@1.2.0 - 2":
-  version "2.0.1"
-  resolved "https://registry.npmjs.org/d3-interpolate/-/d3-interpolate-2.0.1.tgz"
-  integrity sha512-c5UhwwTs/yybcmTpAVqwSFl6vrQ8JZJoT5F7xNFK9pymv5C0Ymcc9/LIJHtYIggg/yS9YHw8i8O8tgb9pupjeQ==
-  dependencies:
-    d3-color "1 - 2"
-
-d3-path@1:
-  version "1.0.9"
-  resolved "https://registry.npmjs.org/d3-path/-/d3-path-1.0.9.tgz"
-  integrity sha512-VLaYcn81dtHVTjEHd8B+pbe9yHWpXKZUC87PzoFmsFrJqgFwDe/qxfp5MlfsfM1V5E/iVt0MmEbWQ7FVIXh/bg==
-
-d3-scale@^3.2.0:
-  version "3.3.0"
-  resolved "https://registry.npmjs.org/d3-scale/-/d3-scale-3.3.0.tgz"
-  integrity sha512-1JGp44NQCt5d1g+Yy+GeOnZP7xHo0ii8zsQp6PGzd+C1/dl0KGsp9A7Mxwp+1D1o4unbTTxVdU/ZOIEBoeZPbQ==
-  dependencies:
-    d3-array "^2.3.0"
-    d3-format "1 - 2"
-    d3-interpolate "1.2.0 - 2"
-    d3-time "^2.1.1"
-    d3-time-format "2 - 3"
-
-d3-shape@^1.3.7:
-  version "1.3.7"
-  resolved "https://registry.npmjs.org/d3-shape/-/d3-shape-1.3.7.tgz"
-  integrity sha512-EUkvKjqPFUAZyOlhY5gzCxCeI0Aep04LwIRpsZ/mLFelJiUfnK56jo5JMDSE7yyP2kLSb6LtF+S5chMk7uqPqw==
-  dependencies:
-    d3-path "1"
-
-"d3-time-format@2 - 3":
-  version "3.0.0"
-  resolved "https://registry.npmjs.org/d3-time-format/-/d3-time-format-3.0.0.tgz"
-  integrity sha512-UXJh6EKsHBTjopVqZBhFysQcoXSv/5yLONZvkQ5Kk3qbwiUYkdX17Xa1PT6U1ZWXGGfB1ey5L8dKMlFq2DO0Ag==
-  dependencies:
-    d3-time "1 - 2"
-
-"d3-time@1 - 2", d3-time@^2.1.1:
-  version "2.1.1"
-  resolved "https://registry.npmjs.org/d3-time/-/d3-time-2.1.1.tgz"
-  integrity sha512-/eIQe/eR4kCQwq7yxi7z4c6qEXf2IYGcjoWB5OOQy4Tq9Uv39/947qlDcN2TLkiTzQWzvnsuYPB9TrWaNfipKQ==
-  dependencies:
-    d3-array "2"
-
 d@1, d@^1.0.1:
   version "1.0.1"
   resolved "https://registry.npmjs.org/d/-/d-1.0.1.tgz"
@@ -5605,11 +5526,6 @@ internal-slot@^1.0.2:
     es-abstract "^1.17.0-next.1"
     has "^1.0.3"
     side-channel "^1.0.2"
-
-internmap@^1.0.0:
-  version "1.0.1"
-  resolved "https://registry.npmjs.org/internmap/-/internmap-1.0.1.tgz"
-  integrity sha512-lDB5YccMydFBtasVtxnZ3MRBHuaoE8GKsppq+EchKL2U4nK/DmEpPHNH8MZe5HkMtpSiTSOZwfN0tzYjO/lJEw==
 
 invariant@^2.2.2, invariant@^2.2.4:
   version "2.2.4"
@@ -8842,13 +8758,6 @@ react-error-overlay@^6.0.7:
   resolved "https://registry.npmjs.org/react-error-overlay/-/react-error-overlay-6.0.7.tgz"
   integrity sha512-TAv1KJFh3RhqxNvhzxj6LeT5NWklP6rDr2a0jaTfsZ5wSZWHOGeqQyejUp3xxLfPt2UpyJEcVQB/zyPcmonNFA==
 
-react-google-charts@^3.0.15:
-  version "3.0.15"
-  resolved "https://registry.npmjs.org/react-google-charts/-/react-google-charts-3.0.15.tgz"
-  integrity sha512-78s5xOQOJvL+jIewrWQZEHtlVk+5Yh4zZy+ODA1on1o1FaRjKWXxoo4n4JQl1XuqkF/A9NWque3KqM6pMggjzQ==
-  dependencies:
-    react-load-script "^0.0.6"
-
 react-is@^16.8.1:
   version "16.8.3"
   resolved "https://registry.npmjs.org/react-is/-/react-is-16.8.3.tgz"
@@ -8858,11 +8767,6 @@ react-is@^16.8.4:
   version "16.13.1"
   resolved "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
-
-react-load-script@^0.0.6:
-  version "0.0.6"
-  resolved "https://registry.npmjs.org/react-load-script/-/react-load-script-0.0.6.tgz"
-  integrity sha512-aRGxDGP9VoLxcsaYvKWIW+LRrMOzz2eEcubTS4NvQPPugjk2VvMhow0wWTkSl7RxookomD1MwcP4l5UStg5ShQ==
 
 react-scripts@^3.4.1:
   version "3.4.3"

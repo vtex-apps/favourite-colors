@@ -1,5 +1,5 @@
 {
-  "favorite-color": {
-    "component": "FavoriteColor"
+  "favourite-colors": {
+    "component": "FavouriteColors"
   }
 }

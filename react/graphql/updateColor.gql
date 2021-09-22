@@ -1,7 +1,7 @@
 mutation updateColor($colorId: String!){
     updateColor(colorId: $colorId) {
-    response
-    status
+      response
+      status
   }
 }
 
