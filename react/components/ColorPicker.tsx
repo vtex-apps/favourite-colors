@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react'
 import { useMutation } from 'react-apollo'
 
 import { Button } from 'vtex.styleguide'
-import { useCssHandles } from 'vtex.css-handles';
-import { Spinner, Alert } from 'vtex.styleguide';
+import { useCssHandles } from 'vtex.css-handles'
+import { Spinner, Alert } from 'vtex.styleguide'
 
 
-import updateColorGQL from './../../graphql/updateColor.gql';
-import ColorButton from '../ColorButton/ColorButton';
+import updateColorGQL from './../graphql/updateColor.gql'
+import ColorButton from './ColorButton'
 
 const CSS_HANDLES = [
   'colorPicker--container',
@@ -33,10 +33,7 @@ const ColorPicker = ({ setSubmitted, colorsArray }: any) => {
   useEffect(() => {
     if (loading) setState(prevState => ({ ...prevState, loading: true }))
     if (error) setState(prevState => ({ ...prevState, error: "Ocurrió un error, inténtelo nuevamente" }))
-    if (data) {
-      console.log(data)
-      data.updateColor?.status === 204 && setSubmitted(true)
-    }
+    if (data) data.updateColor?.status === 204 && setSubmitted(true)
   }, [data, loading, error])
 
   return (

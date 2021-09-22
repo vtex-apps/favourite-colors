@@ -2,7 +2,6 @@ import React from 'react'
 
 import { useCssHandles } from 'vtex.css-handles';
 
-import styles from './Header.module.css';
 
 const CSS_HANDLES = [
   'header--container',
@@ -14,7 +13,7 @@ const Header: StorefrontFunctionComponent<HeaderProps> = ({ image, title }) => {
   return (
     <header
       style={{ backgroundImage: `url(${image})` }}
-      className={`flex items-center ${styles.Header} ${handles['header--container']}`}>
+      className={`flex items-center ${handles['header--container']}`}>
       <h1 className={`ml8 white t-heading-1 b ${handles['header--title']}`}>{title}</h1>
     </header>
   )

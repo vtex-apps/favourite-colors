@@ -4,7 +4,7 @@ import { useQuery } from 'react-apollo'
 import { useCssHandles } from 'vtex.css-handles';
 import { Spinner, Alert } from 'vtex.styleguide';
 
-import getAllColors from './../../graphql/getAllColors.gql'
+import getAllColors from './../graphql/getAllColors.gql'
 
 const CSS_HANDLES = [
   'chart--container',
@@ -37,7 +37,7 @@ const Chart: StorefrontFunctionComponent = () => {
       <ul className={`ma8 pa0 ${handles['chart--container']}`}>
         {colors && colors.map((color: ColorsMetaData, index: number) =>
           <li
-            className={`grow pa5 mv5 br-pill list flex flex-column justify-center items-center ${handles['chart--item']}`}
+            className={`grow b--transparent pa5 mv5 br-pill list flex flex-column justify-center items-center ${handles['chart--item']}`}
             key={index}
             style={{ backgroundColor: color.color }}
           >
