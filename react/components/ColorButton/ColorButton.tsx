@@ -1,5 +1,7 @@
 import React from 'react'
+
 import { useCssHandles } from 'vtex.css-handles';
+
 import styles from './ColorButton.module.css';
 
 const CSS_HANDLES = [

@@ -1,6 +1,8 @@
 import React from 'react'
-import styles from './Header.module.css';
+
 import { useCssHandles } from 'vtex.css-handles';
+
+import styles from './Header.module.css';
 
 const CSS_HANDLES = [
   'header--container',

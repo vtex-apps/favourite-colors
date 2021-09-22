@@ -1,67 +1,24 @@
-import React, { useState, useEffect } from 'react'
-import Header from './components/Header/Header';
-import { useCssHandles } from 'vtex.css-handles';
-import ColorButton from './components/ColorButton/ColorButton';
-import { Button } from 'vtex.styleguide'
-import updateColorGQL from './graphql/updateColor.gql';
-import { useMutation } from 'react-apollo'
-import Chart from './components/Chart/Chart';
+import React, { useState } from 'react'
 
-const CSS_HANDLES = [
-  'colorPicker--container',
-  'colorPicker--title',
-]
+import Chart from './components/Chart/Chart';
+import Header from './components/Header/Header';
+import ColorPicker from './components/ColorPicker/ColorPicker';
 
 const FavouriteColor: StorefrontFunctionComponent<FavouriteColorProps> = ({
   image,
   title = "Color Favorito",
   colorsArray
 }) => {
-  const handles = useCssHandles(CSS_HANDLES)
-  const [selected, setSelected] = useState('');
   const [submitted, setSubmitted] = useState(false);
-
-  const [updateColor,
-    {
-      loading,
-      error,
-      data
-    }] = useMutation(updateColorGQL)
-
-  useEffect(() => {
-    if (loading) console.log(loading)
-    if (error) console.log(error)
-    if (data) {
-      console.log(data)
-      data.updateColor?.status === 204 && setSubmitted(true)
-    }
-  }, [data])
 
   return (
     <>
+      <Header image={image} title={title} />
       {!submitted ?
-        <>
-        <Header image={image} title={title} />
-          <main className={`ma8`} >
-            <h2 className={`mv8 ${handles['colorPicker--title']}`}>Elegí tu color favorito</h2>
-            <div className={`mv8 flex ${handles['colorPicker--container']}`}>
-              {colorsArray && colorsArray.map((item: ColorButtonProps, index: number) =>
-                <ColorButton
-                  onClick={setSelected}
-                  selected={selected}
-                  code={item.code}
-                  key={index}
-                />
-              )}
-            </div>
-            <Button
-              onClick={() => updateColor({ variables: { colorId: selected } })}
-            >
-              Enviar
-            </Button>
-          </main>
-        </> :
-        <Chart />}
+        <ColorPicker colorsArray={colorsArray} setSubmitted={setSubmitted} />
+        :
+        <Chart />
+      }
     </>
   )
 }
