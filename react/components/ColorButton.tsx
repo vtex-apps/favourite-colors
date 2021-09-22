@@ -14,7 +14,7 @@ const ColorButton: StorefrontFunctionComponent<ColorButtonProps> = ({ selected, 
     <button
       name={code}
       style={{ backgroundColor: code }}
-      className={`pointer b--transparent br-pill w3 h3 mr5 ${selected === code && `grow ${handles['colorPicker--colorActive']}`} ${handles['colorPicker--color']}`}
+      className={`pointer b--transparent br-pill w3 h3 mr5 ${selected === code && `${handles['colorPicker--colorActive']}`} ${handles['colorPicker--color']}`}
       onClick={() => onClick(code)}
     >
     </button>
