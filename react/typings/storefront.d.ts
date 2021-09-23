@@ -11,13 +11,28 @@ declare global {
     schema: object
   }
 
-  interface FavouriteColorProps {
+  interface FavouriteColorsProps {
+    image: string
+    title: string
+    colors?: any
+  }
+  interface HeaderProps {
     image: string
     title: string
   }
 
-  interface HeaderProps {
-    image: string
-    title: string
+  interface ColorProps {
+    code: string
+    selected?: string
+    onClick: (code: string) => void
+  }
+  interface ColorPickerProps {
+    colors: ColorProps[]
+    onClick?: (selected: string) => void
+    setSubmitted: React.Dispatch<React.SetStateAction<boolean>>
+  }
+  interface ColorsMetaData {
+    color: string,
+    votes: number
   }
 }
