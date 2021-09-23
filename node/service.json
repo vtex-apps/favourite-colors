@@ -7,7 +7,7 @@
   "workers": 1,
   "routes": {
     "colors": {
-      "path": "/_v/colors",
+      "path": "/_v/favourite-colors/colors",
       "public": true
     }
   }

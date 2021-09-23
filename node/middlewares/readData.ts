@@ -1,27 +1,42 @@
-//import { colors } from '../constants/colors'
-
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function readData(ctx: Context, next: () => Promise<any>) {
+  // eslint-disable-next-line no-console
+  console.log('Entro al readData')
   const {
-    clients: {
-      masterdataClient
-    }
+    clients: { masterDataClient },
   } = ctx
 
-  if(ctx.req.method === 'GET') {
-    console.log('METHOD',ctx.req.method)
-    const colors = await masterdataClient.getAllColors()
-    const hexColors = colors.data.map((color: { id: string, votes: number})=> {
-      return {
-        color: `#${color.id}`,
-        votes: color.votes
-      }
-    })
-    ctx.body = {colors: hexColors, message: 'Success!!!!!'}
-    ctx.status = 200
-  } else {
-    // Levantar el color del state y hacer un getColor() y pasar la cantidad de votos a otro state
-    // y hacer next(), si hay error => catch
-  }
+  try {
+    if (ctx.req.method === 'GET') {
+      const { data } = await masterDataClient.getAllColors()
 
-  await next()
+      // eslint-disable-next-line array-callback-return
+      const colors = data.map((item) => {
+        return {
+          color: `#${item.id}`,
+          votes: item.votes,
+        }
+      })
+
+      // eslint-disable-next-line no-console
+      console.log({ data })
+
+      ctx.body = { colors, message: 'success' }
+      ctx.status = 200
+      await next()
+    } else {
+      const { color } = ctx.state.body
+      const {
+        data: { votes },
+      } = await masterDataClient.getColor(color)
+
+      ctx.state.body.votes = votes
+      await next()
+    }
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.log({ error })
+    ctx.status = 500
+    ctx.body = error
+  }
 }

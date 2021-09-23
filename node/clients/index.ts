@@ -4,7 +4,7 @@ import MasterdataClient from './masterdata'
 
 // Extend the default IOClients implementation with our own custom clients.
 export class Clients extends IOClients {
-  public get masterdataClient() {
-    return this.getOrSet('masterdataClient', MasterdataClient)
+  public get masterDataClient() {
+    return this.getOrSet('masterDataClient', MasterdataClient)
   }
 }

@@ -4,6 +4,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "lint": "eslint --ext js,jsx,ts,tsx .",
+    "myLint": "eslint --fix \"**/*.{ts,tsx,js,jsx}\"",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json}\""
   },
   "husky": {
@@ -21,6 +22,7 @@
     ]
   },
   "devDependencies": {
+    "@vtex/api": "^6.45.4",
     "@types/node": "^12.12.21",
     "@vtex/prettier-config": "^0.3.6",
     "@vtex/danger": "^0.2.7",
