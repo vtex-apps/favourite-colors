@@ -10,16 +10,12 @@ export async function readData(ctx: Context, next: () => Promise<any>) {
     if (ctx.req.method === 'GET') {
       const { data } = await masterDataClient.getAllColors()
 
-      // eslint-disable-next-line array-callback-return
       const colors = data.map((item) => {
         return {
           color: `#${item.id}`,
           votes: item.votes,
         }
       })
-
-      // eslint-disable-next-line no-console
-      console.log({ data })
 
       ctx.body = { colors, message: 'success' }
       ctx.status = 200
