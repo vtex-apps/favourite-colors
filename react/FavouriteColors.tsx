@@ -3,10 +3,11 @@ import Chart from './components/Chart'
 import ColorPicker from './components/ColorPicker'
 import Header from './components/Header'
 
-const FavouriteColors = ({ image, title, colors }: FavouriteColorsProps) => {
+const FavouriteColors = ({ image, title, colors, isActive }: FavouriteColorsProps) => {
   const [submitted, setSubmitted] = useState(false)
-  console.log("is submitted", submitted)
+
   return (
+    isActive &&
     <>
       <Header image={image} title={title} />
       {!submitted ?
@@ -22,6 +23,10 @@ FavouriteColors.schema = {
   title: 'Favourite Colors',
   type: 'object',
   properties: {
+    isActive: {
+      title: 'Activar componente',
+      type: 'boolean',
+    },
     image: {
       title: 'Image Header',
       type: 'string',

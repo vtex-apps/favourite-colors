@@ -12,6 +12,7 @@ declare global {
   }
 
   interface FavouriteColorsProps {
+    isActive: boolean
     image: string
     title: string
     colors?: any
