@@ -1,0 +1,6 @@
+mutation updateColor($colorId: String){
+    updateColor(colorId: $colorId) {
+      response
+      status
+  }
+}

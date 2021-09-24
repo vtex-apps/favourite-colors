@@ -2,7 +2,7 @@ import { JanusClient, InstanceOptions, IOContext } from '@vtex/api'
 
 export default class MasterdataClient extends JanusClient {
   private baseUrl: string = `http://${this.context.account}.vtexcommercestable.com.br/api/dataentities`
-  
+
   constructor(context: IOContext, options?: InstanceOptions) {
     super(context,
       {

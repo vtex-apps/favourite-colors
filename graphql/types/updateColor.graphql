@@ -1,0 +1,4 @@
+type UpdateColorResponse {
+  response : String!
+  status: Int!
+}

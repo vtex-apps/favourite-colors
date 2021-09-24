@@ -1,0 +1,7 @@
+type Query {
+  getAllColors: GetAllColorsResponse
+}
+
+type Mutation {
+  updateColor(colorId: String): UpdateColorResponse
+}
